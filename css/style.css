@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+/* 重置样式*/
+body,form,div,span,ul,ol,li,p,pre,dl,dt,dd,h1,h2,h3,h4,h5,h6,em,a,fieldset,legend,address,label,textarea,select,input,figure,table,th,td,b,i{margin:0;padding:0;}
+body, button, input, select, textarea{ font:12px/1.5 Tahoma,Arial,'宋体'; }
+fieldset,img{border:0;}
+ul,li{list-style:none;}
+em,i{font-style:normal;}
+table{border-collapse:separate;border-spacing:0;}
+a{text-decoration:none;}
+a:hover{ text-decoration:underline;}
+a:focus,input,button,select,textarea{outline:none; font-size:100%;}
+h1,h2,h3,h4,h5,h6{ font-size:100%; font-variant: normal;}
+input,select,img{ vertical-align:middle;}
+legend{ display:none;}
+textarea{resize:none;}
+button {cursor:pointer;}
+
+html,body{ height:100%; width:100%; overflow:hidden; position: relative;}
+
+/*Carousel*/
+.poster-main{
+	width:1000px;
+	height:270px;
+	position:relative;
+	/*background:pink;*/
+}
+
+.poster-main .poster-btn{
+	width:100px;
+	height:270px;
+	background:orange;
+	position:absolute;
+	top:0;
+	z-index: 10;
+	cursor:pointer;
+	opacity: 0.8;
+}
+.poster-main .poster-prev-btn{
+	left:0;
+	background-size:contain;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	background:url(../img/btn_l.png) no-repeat center center;
+}
+.poster-main .poster-next-btn{
+	right:0;
+	background-size:contain;
+	-webkit-background-size:contain;
+	-moz-background-size:contain;
+	background:url(../img/btn_r.png) no-repeat center center;
+}
+.poster-main ul.poster-list{
+	width:640px;
+	height:270px;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.poster-main ul.poster-list li{
+	width:640px;
+	height:270px;
+	position:absolute;
+	top:0;
+	left:0;
+	overflow:hidden;
+}
+.poster-main a,.poster-main img{
+	display:block;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+/*	height:300px;*/
+
+}
+
+

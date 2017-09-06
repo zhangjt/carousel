@@ -1,22 +1,23 @@
 @charset "utf-8";
 
 /* 重置样式*/
+
 body,form,div,span,ul,ol,li,p,pre,dl,dt,dd,h1,h2,h3,h4,h5,h6,em,a,fieldset,legend,address,label,textarea,select,input,figure,table,th,td,b,i{margin:0;padding:0;}
-body, button, input, select, textarea{ font:12px/1.5 Tahoma,Arial,'宋体'; }
+body, button, input, select, textarea{ font:62.5% Tahoma,Arial,'宋体'; }
 fieldset,img{border:0;}
 ul,li{list-style:none;}
 em,i{font-style:normal;}
 table{border-collapse:separate;border-spacing:0;}
 a{text-decoration:none;}
 a:hover{ text-decoration:underline;}
-a:focus,input,button,select,textarea{outline:none; font-size:100%;}
-h1,h2,h3,h4,h5,h6{ font-size:100%; font-variant: normal;}
+a:focus,input,button,select,textarea{outline:none;}
+
 input,select,img{ vertical-align:middle;}
 legend{ display:none;}
 textarea{resize:none;}
 button {cursor:pointer;}
 
-html,body{ height:100%; width:100%; overflow:hidden; position: relative;}
+html,body{ height:100%; width:100%; overflow:hidden; position: relative;font-size:62.5%;}
 
 /*Carousel*/
 .poster-main{
@@ -27,8 +28,8 @@ html,body{ height:100%; width:100%; overflow:hidden; position: relative;}
 }
 
 .poster-main .poster-btn{
-	width:100px;
-	height:270px;
+	width:2rem;
+	height:10rem;
 	background:orange;
 	position:absolute;
 	top:0;

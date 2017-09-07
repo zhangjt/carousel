@@ -1,4 +1,4 @@
-;(function($){
+;(function(){
 
 	var Carousel = function(poster){
 			var self = this;
@@ -17,16 +17,17 @@
 			this.rotateFlag   = true;
 			//默认配置参数
 			this.setting = {
-									"width":"20rem",			//幻灯片的宽度
-									"height":"5rem",				//幻灯片的高度
+									"width":"16rem",			//幻灯片的宽度
+									"height":"7rem",				//幻灯片的高度
 									"posterWidth":"10rem",	//幻灯片第一帧的宽度
-									"posterHeight":"5rem",	//幻灯片第一帧的高度
-									"scale":0.9,					//记录显示比例关系
+									"posterHeight":"7rem",	//幻灯片第一帧的高度
+									"scale":0.8,					//记录显示比例关系
 									"speed":500,
 									"autoPlay":false,
 									"delay":5000,
 									"verticalAlign":"middle" //top bottom
 									};
+
 			$.extend(this.setting,this.getSetting());
 			// console.log(this.setting)
 			//设置配置参数值
@@ -77,6 +78,7 @@
 			  while (target.nodeType != 1) {
 			  target = target.parentNode;
 			  }
+
 			  // if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'BUTTON') { event.preventDefault();}
 			  startPos = {x:event.touches[0].pageX,y:event.touches[0].pageY,time:+new Date};
 			  
@@ -88,6 +90,17 @@
 				}
 			   
 			　  endPos = {x:event.changedTouches[0].pageX - startPos.x,y:event.changedTouches[0].pageY - startPos.y};
+			
+				//设置触摸点在图片上,才执行滑动
+				var className=target.getAttribute('class')||'';
+				while (!~className.indexOf('poster-item')) {
+						target = target.parentNode;
+						if (target.nodeName=="HTML") {
+							return;
+						}
+						className=target.getAttribute('class')||'';		
+				}
+				
 				if(endPos.x > 20){  
 					if(self.rotateFlag){
 						self.rotateFlag = false;
@@ -186,8 +199,8 @@
 				//设置右边位置关系
 				rightSlice.each(function(i){
 					level--;
-					rwNum = rwNum *self.setting.scale;
-					rhNum = rhNum *self.setting.scale
+					rwNum = rwNum *self.setting.scale;  //缩小后
+					rhNum = rhNum *self.setting.scale;  //缩小后
 					var j = i;
 					$(this).css({
 										zIndex:level,
@@ -292,8 +305,9 @@
 	Carousel.init = function(posters){
 		var _this_ = this;
 		posters.each(function(){
+			// new  _this_($(this));
 			new  _this_($(this));
 		});
 	};
 	window["Carousel"] = Carousel;
-})(jQuery);
+})();

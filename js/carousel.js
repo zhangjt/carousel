@@ -88,13 +88,13 @@
 				while (target.nodeType != 1) {
 					target = target.parentNode;
 				}
-			    endPos={x:event.changedTouches[0].pageX,y:event.changedTouches[0].pageY}
+			    endPos={x:event.changedTouches[0].pageX,y:event.changedTouches[0].pageY};
 			　  deltaX = endPos.x-startPos.x;
 				deltaY = endPos.y-startPos.y;
 				//位移的直线距离
 				moveLength = Math.sqrt(Math.pow(Math.abs(deltaX), 2) + Math.pow(Math.abs(deltaY), 2));
 				console.log(moveLength);
-				
+
 				//设置触摸点在图片上,才执行滑动
 				var className=target.getAttribute('class')||'';
 				while (!~className.indexOf('poster-item')) {

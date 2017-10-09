@@ -81,15 +81,16 @@
 
 			  // if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'BUTTON') { event.preventDefault();}
 			  startPos = {x:event.touches[0].pageX,y:event.touches[0].pageY,time:+new Date};
-			  
+			  // console.log(startPos.time)
 			},false);
 			window.addEventListener('touchend',function(event){
 				var target = event.target;
 				while (target.nodeType != 1) {
 					target = target.parentNode;
 				}
-			   
-			　  endPos = {x:event.changedTouches[0].pageX - startPos.x,y:event.changedTouches[0].pageY - startPos.y};
+			    endPos={x:event.changedTouches[0].pageX,y:event.changedTouches[0].pageY}
+			　  deltaX = endPos.x-startPos.x;
+				deltaY = endPos.y-startPos.y;
 			
 				//设置触摸点在图片上,才执行滑动
 				var className=target.getAttribute('class')||'';
@@ -101,12 +102,12 @@
 						className=target.getAttribute('class')||'';		
 				}
 				
-				if(endPos.x > 20){  
+				if(deltaX > 20){  
 					if(self.rotateFlag){
 						self.rotateFlag = false;
 						self.carouseRotate("right");
 					};
-				}else if(endPos.x < -20){
+				}else if(deltaX < -20){
 					if(self.rotateFlag){
 						self.rotateFlag = false;
 						self.carouseRotate("left");
